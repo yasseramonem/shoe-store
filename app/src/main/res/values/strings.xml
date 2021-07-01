@@ -8,8 +8,15 @@
     <string name="password_hint">Enter your password</string>
     <string name="login_button">Login</string>
     <string name="create_button">Create Account</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+
+    <string name="welcome">Welcome</string>
+    <string name="welcome_text">Welcome to our Shoe Listing app we hope you can find what ever you need over here</string>
+    <string name="instructions">Instructions</string>
+    <string name="instructions_text">On the next screen you can view all the shoes listed and you can add more with a click of a button</string>
+    <string name="to_shoes_list">to Shoes List</string>
+    <string name="shoe_model">Shoe model</string>
     <!-- Strings used for fragments for navigation -->
 
 </resources>

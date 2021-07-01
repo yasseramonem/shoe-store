@@ -4,20 +4,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.yasser.shoestore.R
+import com.yasser.shoestore.ViewModel
 import com.yasser.shoestore.databinding.FragmentLoginBinding
-import com.yasser.shoestore.models.LoginViewModel
 
 
 class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
-    private lateinit var loginViewModel: LoginViewModel
+    private val viewModel: ViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,20 +27,30 @@ class LoginFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate( inflater, R.layout.fragment_login, container, false)
 
-        loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        binding.createButton.setOnClickListener {
+            navigate()
+        }
 
-        binding.viewModel = loginViewModel
-        binding.lifecycleOwner = this
+        binding.loginButton.setOnClickListener {
 
-        loginViewModel.loggedin_state.observe(viewLifecycleOwner, Observer { isLoggedin ->
-            if(isLoggedin){
-               findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
-            }
-        })
+            navigate()
+        }
+
 
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+
+    }
+
+    private fun navigate(){
+
+        viewModel.hasLoggedIn()
+        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
+
+    }
 
 
 

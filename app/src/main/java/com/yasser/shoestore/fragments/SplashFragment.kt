@@ -9,12 +9,15 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.yasser.shoestore.R
+import com.yasser.shoestore.ViewModel
 import com.yasser.shoestore.databinding.FragmentSplashBinding
+
 
 
 class SplashFragment : Fragment() {
 
     private lateinit var binding: FragmentSplashBinding
+    private lateinit var viewModel: ViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,19 +29,23 @@ class SplashFragment : Fragment() {
             R.layout.fragment_splash,
             container, false)
 
-
         return binding.root
     }
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.hide()
 
+
         binding.splashIcon.alpha = 0f
         binding.splashIcon.animate().setDuration(1500).alpha(1f).withEndAction {
-            findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
+                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
         }
+
     }
+
 
     override fun onStop() {
         super.onStop()
