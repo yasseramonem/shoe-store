@@ -1,13 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.ShoeDetailFragment">
 
-    <TextView
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:style="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.yasser.shoestore.ViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="hello" />
+        tools:context=".fragments.ShoeDetailFragment">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_your_favorite_shoe"
+            android:textSize="@dimen/font_size"
+            style:layout_constraintBottom_toBottomOf="parent"
+            style:layout_constraintEnd_toEndOf="parent"
+            style:layout_constraintStart_toStartOf="parent"
+            style:layout_constraintTop_toTopOf="parent"
+            style:layout_constraintVertical_bias="0.26" />
+
+        <EditText
+            android:id="@+id/editText_model"
+            style="@style/editTextStyle"
+            android:hint="@string/enter_shoe_model_name"
+            style:layout_constraintStart_toStartOf="parent"
+            style:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <EditText
+            android:id="@+id/editText_company"
+            style="@style/editTextStyle"
+            android:hint="@string/enter_shoe_company"
+            style:layout_constraintStart_toStartOf="parent"
+            style:layout_constraintTop_toBottomOf="@id/editText_model" />
+
+        <EditText
+            android:id="@+id/editText_size"
+            style="@style/editTextStyleNumber"
+            android:hint="@string/enter_shoe_size"
+            style:layout_constraintStart_toStartOf="parent"
+            style:layout_constraintTop_toBottomOf="@id/editText_company" />
+
+        <EditText
+            android:id="@+id/editText_desc"
+            style="@style/editTextStyle"
+            android:hint="@string/enter_shoe_description"
+            style:layout_constraintStart_toStartOf="parent"
+            style:layout_constraintTop_toBottomOf="@id/editText_size" />
+
+        <Button
+            android:id="@+id/button_save"
+            style="@style/ButtonLight"
+            android:text="@string/save"
+            style:layout_constraintBottom_toBottomOf="parent"
+            style:layout_constraintEnd_toStartOf="@+id/button_cancel"
+            style:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/button_cancel"
+            style="@style/ButtonDark"
+            android:text="@string/cancel"
+            style:layout_constraintBottom_toBottomOf="parent"
+            style:layout_constraintEnd_toEndOf="parent"
+            style:layout_constraintStart_toEndOf="@+id/button_save" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

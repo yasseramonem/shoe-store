@@ -300,7 +300,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/arrow_forward_ios/baseline_arrow_forward_ios_24.xml" />
+                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/add/baseline_add_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -311,7 +311,7 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_baseline_arrow_forward_ios_24" />
+                            <entry key="outputName" value="ic_baseline_add_24" />
                             <entry key="sourceFile" value="$USER_HOME$/Documents/Yasser/Private/Udacity/Android Kotlin Nanodegree/ic_launcher_foreground.svg" />
                           </map>
                         </option>

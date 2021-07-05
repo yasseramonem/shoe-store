@@ -16,11 +16,13 @@
         tools:context=".fragments.LoginFragment">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            android:id="@+id/logo"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_launcher_foreground" />
 
         <LinearLayout
@@ -30,10 +32,12 @@
             android:orientation="vertical"
             android:paddingStart="@dimen/standard_dim"
             android:paddingEnd="@dimen/standard_dim"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.45">
 
             <TextView
                 android:id="@+id/username_label"
@@ -69,20 +73,26 @@
                 android:hint="@string/password_hint"
                 android:inputType="textPassword" />
 
-            <Button
-                android:id="@+id/login_button"
-                android:layout_marginBottom="10dp"
-                android:text="@string/login_button"
-                style="@style/ButtonMarginLess" />
 
-            <Button
-                android:id="@+id/create_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimaryDark"
-                android:textColor="@color/white"
-                android:text="@string/create_button" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/login_button"
+            style="@style/ButtonLight"
+            android:text="@string/login_button"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/create_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/create_button"
+            style="@style/ButtonDark"
+            android:visibility="gone"
+            android:text="@string/create_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

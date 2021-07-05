@@ -4,38 +4,38 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.yasser.shoestore.R
-import com.yasser.shoestore.ViewModel
 import com.yasser.shoestore.databinding.FragmentWelcomeBinding
 
+/*
+This is the Second Screen for the app
+ */
 
 class WelcomeFragment : Fragment() {
 
-    private val viewModel: ViewModel by activityViewModels()
+
     private lateinit var binding: FragmentWelcomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View {
+        // Showing the actionBar with OverFlow Menu
+        (activity as AppCompatActivity).supportActionBar?.show()
 
+        // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,
                 R.layout.fragment_welcome,
                 container, false)
 
-
-        binding.viewModel = viewModel
-
-
+        // Setting onClickListener to Navigate to InstructionsFragment
         binding.buttonWelcome.setOnClickListener {
             findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToOnboardingFragment())
         }
-
         return binding.root
     }
 
