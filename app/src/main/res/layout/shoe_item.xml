@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="shoe"
+            type="com.yasser.shoestore.Shoe" />
+    </data>
+
+<LinearLayout
+    android:id="@+id/shoe_item"
+    android:tag="shoe_list"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/fab_margin">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/a_shoe_image"
+        android:src="@drawable/ic_launcher_foreground" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/shoe_model_tv"
+            android:text="@{shoe.shoeModel}"
+            style="@style/shoe_model" />
+
+        <TextView
+            android:id="@+id/shoe_company_tv"
+            android:text="@{@string/shoe_company(shoe.shoeCompany)}"
+            style="@style/shoe_details" />
+
+        <TextView
+            android:id="@+id/shoe_size_tv"
+            android:text="@{@string/shoe_size(shoe.shoeSize)}"
+            style="@style/shoe_details" />
+
+        <TextView
+            android:id="@+id/shoe_desc_tv"
+            android:text="@{@string/shoe_desc(shoe.shoeDesc)}"
+            style="@style/shoe_details" />
+
+    </LinearLayout>
+
+</LinearLayout>
+
+</layout>
