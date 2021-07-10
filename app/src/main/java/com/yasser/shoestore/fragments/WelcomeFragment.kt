@@ -20,12 +20,15 @@ class WelcomeFragment : Fragment() {
 
     private lateinit var binding: FragmentWelcomeBinding
 
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Showing the actionBar with OverFlow Menu
-        (activity as AppCompatActivity).supportActionBar?.show()
+
 
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,
@@ -38,5 +41,11 @@ class WelcomeFragment : Fragment() {
         }
         return binding.root
     }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity).supportActionBar?.show()
+    }
+
 
 }

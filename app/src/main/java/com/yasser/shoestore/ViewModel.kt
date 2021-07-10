@@ -1,10 +1,11 @@
 package com.yasser.shoestore
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-data class Shoes (
+data class Shoe (
     var shoeModel: String,
     var shoeCompany: String,
     var shoeSize: String,
@@ -13,19 +14,23 @@ data class Shoes (
 
  class ViewModel: ViewModel() {
 
-     val shoesList = mutableListOf(Shoes("", "","",""))
+     val shoesList = mutableListOf(Shoe("", "", "", ""))
 
-     private val _shoeAdded = MutableLiveData<MutableList<Shoes>>()
-     val shoeAdded: LiveData<MutableList<Shoes>>
+
+
+     private val _shoeAdded = MutableLiveData<MutableList<Shoe>>()
+     val shoeAdded: LiveData<MutableList<Shoe>>
             get() = _shoeAdded
+
 
      init {
          shoesList.clear()
-
      }
 
     fun newShoe(){
         _shoeAdded.value = shoesList
+
+        Log.i("ContentOf ShoeModel", _shoeAdded.value.toString())
     }
 
 }

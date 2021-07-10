@@ -17,7 +17,7 @@
     <string name="instructions_text">On the next screen you can view all the shoes listed and you can add more with a click of a button</string>
     <string name="to_shoes_list">to Shoes List</string>
     <string name="shoe_desc">Description: %1$s</string>
-    <string name="shoe_size">Size: %2$d</string>
+    <string name="shoe_size">Size: %1$s</string>
     <string name="shoe_model">%1$s</string>
     <string name="shoe_company">Company: %1$s</string>
     <string name="add_your_favorite_shoe">Add your favorite shoe</string>

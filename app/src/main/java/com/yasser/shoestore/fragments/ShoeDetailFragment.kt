@@ -9,19 +9,16 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.yasser.shoestore.R
-import com.yasser.shoestore.Shoes
+import com.yasser.shoestore.Shoe
 import com.yasser.shoestore.ViewModel
 import com.yasser.shoestore.databinding.FragmentShoeDetailBinding
-import com.yasser.shoestore.databinding.ShoeItemBinding
 
 
 class ShoeDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentShoeDetailBinding
 
-
-    private lateinit var shoeItemBinding: ShoeItemBinding
-
+    private val shoe = Shoe("","","","")
 
     private val viewModel: ViewModel by activityViewModels()
 
@@ -29,17 +26,16 @@ class ShoeDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         // Inflate the layout for this fragment
        binding = DataBindingUtil.inflate( inflater,
             R.layout.fragment_shoe_detail,
             container, false)
 
 
-        shoeItemBinding = DataBindingUtil.inflate(inflater,R.layout.shoe_item,container,false)
 
 
-        shoeItemBinding.viewModel = viewModel
-
+        binding.shoe = shoe
 
         binding.buttonSave.setOnClickListener {
 
@@ -49,18 +45,12 @@ class ShoeDetailFragment : Fragment() {
 
         }
 
-
-
         return binding.root
     }
 
     private fun getShoe(){
 
-        viewModel.shoesList.add( Shoes (
-                binding.editTextModel.text.toString(),
-                binding.editTextCompany.text.toString(),
-                binding.editTextSize.text.toString(),
-                binding.editTextDesc.text.toString()))
+        viewModel.shoesList.add(shoe)
     }
 
 

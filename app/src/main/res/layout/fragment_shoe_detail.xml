@@ -6,8 +6,8 @@
 
     <data>
         <variable
-            name="viewModel"
-            type="com.yasser.shoestore.ViewModel" />
+            name="shoe"
+            type="com.yasser.shoestore.Shoe" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,6 +31,7 @@
             android:id="@+id/editText_model"
             style="@style/editTextStyle"
             android:hint="@string/enter_shoe_model_name"
+            android:text="@={shoe.shoeModel}"
             style:layout_constraintStart_toStartOf="parent"
             style:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -38,6 +39,7 @@
             android:id="@+id/editText_company"
             style="@style/editTextStyle"
             android:hint="@string/enter_shoe_company"
+            android:text="@={shoe.shoeCompany}"
             style:layout_constraintStart_toStartOf="parent"
             style:layout_constraintTop_toBottomOf="@id/editText_model" />
 
@@ -45,6 +47,7 @@
             android:id="@+id/editText_size"
             style="@style/editTextStyleNumber"
             android:hint="@string/enter_shoe_size"
+            android:text="@={shoe.shoeSize}"
             style:layout_constraintStart_toStartOf="parent"
             style:layout_constraintTop_toBottomOf="@id/editText_company" />
 
@@ -52,6 +55,7 @@
             android:id="@+id/editText_desc"
             style="@style/editTextStyle"
             android:hint="@string/enter_shoe_description"
+            android:text="@={shoe.shoeDesc}"
             style:layout_constraintStart_toStartOf="parent"
             style:layout_constraintTop_toBottomOf="@id/editText_size" />
 
