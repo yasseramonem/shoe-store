@@ -15,13 +15,14 @@ import com.yasser.shoestore.databinding.ShoeItemBinding
 
 class ShoeListingFragment : Fragment() {
 
-
+    // Intializing ShoeLising Binding, ShoeItemBinding and ViewModel
     private lateinit var binding: FragmentShoeListingBinding
 
     private lateinit var shoeItemBinding: ShoeItemBinding
 
     private val viewModel: ViewModel by activityViewModels()
 
+    //overriding onCreate to enable options Menu
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -39,14 +40,16 @@ class ShoeListingFragment : Fragment() {
             container, false
         )
 
-
-
+        //setting onClickListener for the floating button
         binding.floatingButton.setOnClickListener {
             findNavController().navigate(ShoeListingFragmentDirections.actionShoeListingFragmentToShoeDetailFragment())
         }
 
 
+        //Observing the liveData field from the viewModel
         viewModel.shoeAdded.observe(viewLifecycleOwner, {
+
+            //looping through LiveData List of shoes and sending each item to addView()
             for(shoe in it) {
                 addView(shoe)
             }
@@ -56,8 +59,8 @@ class ShoeListingFragment : Fragment() {
     }
 
 
+    //Adding a new ShoeItem using a custom layout (shoe_item.xml) and updating textViews via DataBinding
     private fun addView(shoe: Shoe) {
-
 
         shoeItemBinding = ShoeItemBinding.inflate(LayoutInflater.from(requireContext()))
         shoeItemBinding.shoe = shoe
@@ -70,11 +73,13 @@ class ShoeListingFragment : Fragment() {
 
     }
 
+    //inflating options Menu
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.menu_main, menu)
     }
 
+    //Navigating to LoginFragment when menu item is selected
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return NavigationUI.onNavDestinationSelected(item, findNavController()) || super.onOptionsItemSelected(item)
     }

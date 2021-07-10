@@ -32,29 +32,35 @@ class ShoeDetailFragment : Fragment() {
             R.layout.fragment_shoe_detail,
             container, false)
 
-
-
-
+        // Assigning Shoe Data Class to shoe var in ShoeDetail binding
         binding.shoe = shoe
 
+        // setting onClick for cancel button
+        binding.buttonCancel.setOnClickListener {
+            navigate()
+        }
+
+        //setting onClick Listener for Save button to add the data retrieved from user via DataBinding
         binding.buttonSave.setOnClickListener {
 
             getShoe()
             viewModel.newShoe()
-            findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListingFragment())
+            navigate()
 
         }
 
         return binding.root
     }
 
+    // Adding a shoe data item in the shoe list
     private fun getShoe(){
 
         viewModel.shoesList.add(shoe)
     }
 
+    //Navigating to ShoeListing fragment
+    private fun navigate(){
+        findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListingFragment())
+    }
 
 }
-//
-//val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-//imm.hideSoftInputFromWindow(view.windowToken, 0)

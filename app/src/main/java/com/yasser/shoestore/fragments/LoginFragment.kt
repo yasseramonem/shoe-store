@@ -22,12 +22,6 @@ class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-//        setHasOptionsMenu(true)
-    }
-
-
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
@@ -51,7 +45,6 @@ class LoginFragment : Fragment() {
     // Navigating from Login Fragment to WelcomeFragment
     private fun navigate(){
         findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
-
     }
 
     // Overriding onViewCreated to execute Logo animations and to hide ActionBar
