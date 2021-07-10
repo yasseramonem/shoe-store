@@ -5,6 +5,7 @@ import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.yasser.shoestore.R
@@ -81,7 +82,13 @@ class ShoeListingFragment : Fragment() {
 
     //Navigating to LoginFragment when menu item is selected
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item, findNavController()) || super.onOptionsItemSelected(item)
+
+        /*Getting the NavController and calling navigateUp() to control backButton behaviour
+          when returning to LoginFragment on Logout MenuItem is pressed
+        */
+        val navController = requireView().findNavController()
+        navController.navigateUp()
+        return NavigationUI.onNavDestinationSelected(item, navController) || super.onOptionsItemSelected(item)
     }
 
 }

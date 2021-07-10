@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
         <variable
@@ -7,47 +8,61 @@
             type="com.yasser.shoestore.Shoe" />
     </data>
 
-<LinearLayout
-    android:id="@+id/shoe_item"
-    android:tag="shoe_list"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="@dimen/fab_margin">
+    <!--Here i have removed unnecessary 2 LinearLayouts and replaced them with
+     one Constraint Layout and i managed to position
+    each element any where in the layout in relation to each other unlike other
+    ViewGroups there is no limitation
+    -->
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/a_shoe_image"
-        android:src="@drawable/ic_launcher_foreground" />
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/shoe_item"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:padding="@dimen/fab_margin">
+
+        <ImageView
+            android:id="@+id/shoeImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/a_shoe_image"
+            android:src="@drawable/ic_launcher_foreground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/shoe_model_tv"
+            style="@style/shoe_model"
             android:text="@{shoe.shoeModel}"
-            style="@style/shoe_model" />
+            app:layout_constraintBottom_toTopOf="@+id/shoe_company_tv"
+            app:layout_constraintLeft_toRightOf="@id/shoeImage"
+            app:layout_constraintTop_toTopOf="@id/shoeImage" />
 
         <TextView
             android:id="@+id/shoe_company_tv"
+            style="@style/shoe_details"
             android:text="@{@string/shoe_company(shoe.shoeCompany)}"
-            style="@style/shoe_details" />
+            app:layout_constraintBottom_toTopOf="@+id/shoe_size_tv"
+            app:layout_constraintLeft_toRightOf="@id/shoeImage"
+            app:layout_constraintTop_toBottomOf="@+id/shoe_model_tv" />
 
         <TextView
             android:id="@+id/shoe_size_tv"
+            style="@style/shoe_details"
             android:text="@{@string/shoe_size(shoe.shoeSize)}"
-            style="@style/shoe_details" />
+            app:layout_constraintBottom_toTopOf="@+id/shoe_desc_tv"
+            app:layout_constraintLeft_toRightOf="@id/shoeImage"
+            app:layout_constraintTop_toBottomOf="@+id/shoe_company_tv" />
 
         <TextView
             android:id="@+id/shoe_desc_tv"
+            style="@style/shoe_details"
             android:text="@{@string/shoe_desc(shoe.shoeDesc)}"
-            style="@style/shoe_details" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/shoeImage"
+            app:layout_constraintTop_toBottomOf="@+id/shoe_size_tv" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</LinearLayout>
 
 </layout>

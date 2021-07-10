@@ -10,6 +10,11 @@
             type="com.yasser.shoestore.ViewModel" />
     </data>
 
+    <!--Here with the help of Constraint layout i can easily position
+    each element any where in the layout in relation to each other unlike other
+    ViewGroups there is no limitation
+    -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,6 +29,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_launcher_foreground" />
+
+
+        <!--Here i have used a LinearLayout to align each item vertically with
+        ease as well as controlling visibility of all items altogether when logo
+        animation finishes
+        -->
 
         <LinearLayout
             android:id="@+id/linearLayout"

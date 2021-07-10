@@ -18,11 +18,6 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left" />
-        <action
-            android:id="@+id/action_loginFragment_to_shoeListingFragment"
-            app:destination="@id/shoeListingFragment"
-            app:popUpTo="@id/nav_graph"
-            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment

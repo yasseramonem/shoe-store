@@ -10,6 +10,10 @@
             type="com.yasser.shoestore.Shoe" />
     </data>
 
+    <!--Here with the help of Constraint layout i can easily position
+    each element any where in the layout in relation to each other unlike other
+    ViewGroups there is no limitation
+    -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

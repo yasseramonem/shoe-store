@@ -59,14 +59,11 @@
 
     <style name="shoe_model" parent="headline_text">
         <item name="android:textSize">20sp</item>
-        <item name="android:layout_weight">0.25</item>
+        <item name="android:layout_height">0dp</item>
         <item name="android:layout_marginStart">@dimen/fab_margin</item>
     </style>
 
     <style name="shoe_details" parent="shoe_model">
-        <item name="android:layout_weight">1</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">0dp</item>
         <item name="android:textSize">15sp</item>
     </style>
 
